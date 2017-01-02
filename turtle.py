@@ -22,7 +22,7 @@ class Turtle:
         api = 'www.okcoin.com'
         okcoin = self.okcoin = OKCoinFuture(api, apikey, secretkey)
 
-        logging.info.basicConfig(level=logging.info.DEBUG,
+        logging.basicConfig(level=logging.DEBUG,
                             format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                             datefmt='%b %d %H:%M:%S', filename='turtle.out', filemode='a')
 
@@ -152,7 +152,7 @@ if __name__ == '__main__':
     last = time.time()
     while True:
         now = time.time()
-        if now - last > 3600:
+        if now - last > 300:
             last = now
             turtle.step = turtle.count_atr_mean()[2]
             logging.info('设置步进: %.2f%%' % (turtle.step*100))
